@@ -3,18 +3,23 @@ import {useState} from "react";
 
 function App() {
 
-    const [result, setResult] = useState(0);
-    const [num, setNum]= useState(0);
-    const [check, setCheck]= useState("#");
+    const [result, setResult] = useState(0);    //display the result
+    const [num, setNum]= useState(0);           //stores intermediate values
+    const [check, setCheck]= useState("#");     //checks the sign(+ - x /) when pressed
 
     //fuctionalities of AC, Backspace and num keys
     const buttonPress = (value) =>{
         if(value==="AC")
             setResult(0);
         else if(value==="back")
-            setResult(Math.floor(result/10))
+            setResult(Math.floor(result/10));
         else
-            setResult(result*10+ value)
+        {
+            if(result<0)
+                setResult(result*10-value);
+            else
+                setResult(result*10+ value);
+        }
     }
 
     // Subtraction
@@ -45,15 +50,14 @@ function App() {
         setCheck("x");
     }
 
+    //functionality of the =(result) button
     const onResult = () =>{
         if("+"===check)
         {
-            console.log(result+"+"+num+"="+(result+num))
             setResult(num+result);
         }
         else if("-"===check)
             setResult(num-result);
-            
         else if("x"===check)
             setResult(num*result);
         else if("/"===check)
@@ -72,7 +76,6 @@ function App() {
                 
                 }}>➕
                 </div>
-                {/* <div className="value"> {number} </div> */}
                 <div className="minus" onClick={() => {
                     onMinus();
                 }}>➖
