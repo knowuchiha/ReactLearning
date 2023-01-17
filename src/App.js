@@ -12,7 +12,10 @@ function App() {
         if(value==="AC")
             setResult(0);
         else if(value==="back")
-            setResult(Math.floor(result/10));
+            if(result<0) 
+                setResult(Math.ceil(result/10)) // bcs floor(-12/10)= -2
+            else
+                setResult(Math.floor(result/10));
         else
         {
             if(result<0)
