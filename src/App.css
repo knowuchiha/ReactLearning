@@ -1,26 +1,57 @@
-.App {
-    width: 100px;
-    height: 100px;
+.App{
+    background-color: orange;
+    margin: auto;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: max-content;
+    border: 2px solid black;  
+}
+
+.row {
+    position: relative;
+    width: 600px;
     display: flex;
-    background: aliceblue;
+    background-color: white;
     text-align: center;
     justify-content: center;
-    border: 1px solid gray;
     padding: 4px;
 }
 
-.plus {
-    cursor: pointer;
-    padding: 10px;
-    background: black;
-    color: white;
+.textarea{
+    padding-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 2px solid black;
+    height: 50px;
+    width: 600px;
+    background-color: rgb(186, 186, 186);
 }
 
-.minus {
+.plus, .minus, .multiply, .divide, .result, .button1, .button2, .button3, .button4, .button5, .button6, .button7, .button8, .button9, .button0, .buttonBack, .buttonAC {
     cursor: pointer;
-    padding: 10px;
-    background: black;
-    color: white;
+    width: 40px;
+    border-radius: 20px;
+    background-color: orange;
+    padding: 30px;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    margin: 0 5px;
+}
+.label{
+    transform: rotate(90deg);
+    font-size: 24px;
+    position:absolute;
+    bottom: 215px;
+    right: -80px; 
+    width: 285px;
+    padding: 12px 10px;
+    background-color: yellow;
+    border-radius: 20px;
+    border: 2px solid black;
+
 }
 
 .value {
@@ -30,4 +61,8 @@
     padding: 16px;
     font-weight: bold;
     background: aqua;
+}
+
+img{
+    margin: auto 10px;
 }

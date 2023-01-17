@@ -2,30 +2,147 @@ import './App.css';
 import {useState} from "react";
 
 function App() {
-    // Counter
-    const [number, setNumber] = useState(10);
 
-    // Reduce Counter
-    const onRemove = () => {
-        setNumber(number - 1);
+    const [result, setResult] = useState(0);
+    const [num, setNum]= useState(0);
+    const [check, setCheck]= useState("#");
+
+    //fuctionalities of AC, Backspace and num keys
+    const buttonPress = (value) =>{
+        if(value==="AC")
+            setResult(0);
+        else if(value==="back")
+            setResult(Math.floor(result/10))
+        else
+            setResult(result*10+ value)
     }
 
-    // Increase Counter
+    // Subtraction
+    const onMinus = () => {
+        setNum(result);
+        setResult(0);
+        setCheck("-");
+    }
+
+    // Addition
     const onAdd = () => {
-        setNumber(number + 1);
+        setNum(result);
+        setResult(0);
+        setCheck("+");
     }
 
+    //division
+    const onDivide = () => {
+        setNum(result);
+        setResult(0);
+        setCheck("/");
+    }
+
+    //Multiply
+    const onMultiply = () => {
+        setNum(result);
+        setResult(0);
+        setCheck("x");
+    }
+
+    const onResult = () =>{
+        if("+"===check)
+        {
+            console.log(result+"+"+num+"="+(result+num))
+            setResult(num+result);
+        }
+        else if("-"===check)
+            setResult(num-result);
+            
+        else if("x"===check)
+            setResult(num*result);
+        else if("/"===check)
+            setResult(num/result);
+    }
+
+
+    
     return (
         <div className="App">
-            <div className="plus" onClick={() => {
-                onAdd();
-            }}> +
+            <div className="textarea">{result}</div>
+          
+            <div className="row">
+                <div className="plus" onClick={() => {
+                    onAdd();
+                
+                }}>➕
+                </div>
+                {/* <div className="value"> {number} </div> */}
+                <div className="minus" onClick={() => {
+                    onMinus();
+                }}>➖
+                </div>
+                <div className="multiply" onClick={() => {
+                    onMultiply();
+                }}>✖
+                </div>
+                <div className="divide" onClick={() => {
+                    onDivide();
+                }}>➗
+                </div>
+                <div className="result" onClick={() => {
+                    onResult();
+                }}><strong>=</strong>
+                </div>    
             </div>
-            <div className="value"> {number} </div>
-            <div className="minus" onClick={() => {
-                onRemove()
-            }}> -
+            
+            <div className="row">
+                <div className="button1" onClick={()=>{
+                    buttonPress(1);
+                }}>1</div>
+                <div className="button2" onClick={()=>{
+                    buttonPress(2);
+                }}>2</div>
+                <div className="button3" onClick={()=>{
+                    buttonPress(3);
+                }}>3</div>
             </div>
+            <div className="row">
+                <div className="button4" onClick={()=>{
+                    buttonPress(4);
+                }}>4</div>
+                <div className="button5" onClick={()=>{
+                    buttonPress(5);
+                }}>5</div>
+                <div className="button6" onClick={()=>{
+                    buttonPress(6);
+                }}>6</div>
+            </div>
+            <div className="row">
+                <div className="button7" onClick={()=>{
+                    buttonPress(7);
+                }}>7</div>
+                <div className="button8" onClick={()=>{
+                    buttonPress(8);
+                }}>8</div>
+                <div className="button9" onClick={()=>{
+                    buttonPress(9);
+                }}>9</div>
+            </div>
+            <div className="row">
+                <div className="button0" onClick={()=>{
+                    buttonPress(0);
+                }}>0</div>
+                <div className="buttonBack" onClick={()=>{
+                    buttonPress("back");
+                }}>◀</div>
+                <div className="buttonAC" onClick={()=>{
+                    buttonPress("AC");
+                }}>AC</div>
+
+                <div className="label">
+                    Codded by:Arindom Aich 
+                    <br/> 
+                    <a href={"https://github.com/ArindomAich1"} target={"_blank"}><img src={"github.png"} style={{ width: '40px' }}></img></a>
+                    <a href={"https://www.linkedin.com/in/arindomaich/"} target={"_blank"}><img src={"linkedin.png"} style={{ width: '40px' }}></img></a>
+                </div>
+            </div>
+            
         </div>
     );
 }
