@@ -1,33 +1,54 @@
-.App {
-    width: 100px;
-    height: 100px;
+body {
     display: flex;
-    background: aliceblue;
-    text-align: center;
     justify-content: center;
-    border: 1px solid gray;
-    padding: 4px;
+    align-items: center;
 }
-
-.plus {
-    cursor: pointer;
-    padding: 10px;
-    background: black;
-    color: white;
-}
-
-.minus {
-    cursor: pointer;
-    padding: 10px;
-    background: black;
-    color: white;
-}
-
-.value {
+.App {
+    top:50%;
+    left: 50%;
     position: absolute;
-    top : 45px;
-    left: 40px;
-    padding: 16px;
-    font-weight: bold;
-    background: aqua;
+    transform: translate(-50%,-50%);
+    margin: 0 auto;
+    width: 256px;
+    text-align: center;
+    border: 5px solid black;
+    background: black;
+    border-radius: 10px;
+}
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: auto;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    height: 50px;
+}
+button:hover {
+    color: purple;
+    text-shadow: 
+        0 0 10px rgb(33, 28, 181), 
+        0 0 20px rgb(45, 45, 176), 
+        0 0 42px rgb(28, 51, 151), 
+        0 0 82px rgb(40, 38, 152),
+        0 0 92px rgb(72, 38, 240);
+}
+.operators {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: minmax(30px, auto);
+}
+.digits {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+input[type="text"] {
+    height: 75px;
+    width: 250px;
+    background-color: black;
+    border: 0px;
+    color: white ;
+    text-align: right;
+    font-size: 25px;
 }
