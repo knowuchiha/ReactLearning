@@ -41,8 +41,8 @@ function App() {
           <button name="-" onClick={handleClick}>
             -
           </button>
-          <button name="x" onClick={handleClick}>
-            x
+          <button name="*" onClick={handleClick}>
+            *
           </button>
           <button name="/" onClick={handleClick}>
             /
