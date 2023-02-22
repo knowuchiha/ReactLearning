@@ -1,54 +1,45 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .App {
-    top:50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    margin: 0 auto;
-    width: 256px;
-    text-align: center;
-    border: 5px solid black;
-    background: black;
-    border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border: 5px solid black;
+  background: black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px #48cc5e, 0 0 20px 7px #52a716, 0 0 25px 20px #156f0d,
+    0 0 30px 25px #0a4306;
 }
 button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: auto;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    height: 50px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 2px;
 }
 button:hover {
-    color: purple;
-    text-shadow: 
-        0 0 10px rgb(33, 28, 181), 
-        0 0 20px rgb(45, 45, 176), 
-        0 0 42px rgb(28, 51, 151), 
-        0 0 82px rgb(40, 38, 152),
-        0 0 92px rgb(72, 38, 240);
+  color: rgb(1, 1, 1);
+  text-shadow: 0 0 10px rgb(33, 28, 181), 0 0 20px rgb(45, 45, 176),
+    0 0 42px rgb(28, 51, 151), 0 0 82px rgb(40, 38, 152),
+    0 0 92px rgb(72, 38, 240);
 }
 .operators {
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    grid-template-rows: minmax(30px, auto);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 .digits {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 input[type="text"] {
-    height: 75px;
-    width: 250px;
-    background-color: black;
-    border: 0px;
-    color: white ;
-    text-align: right;
-    font-size: 25px;
+  height: 75px;
+  width: 250px;
+  background-color: black;
+  border: 0px;
+  color: white;
+  text-align: right;
+  font-size: 25px;
 }
