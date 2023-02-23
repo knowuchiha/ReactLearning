@@ -1,11 +1,19 @@
-.calc{
-  width: 320px;
-  margin: 100px auto;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
+.calc {
+  width: 320px;
+  border: 3px solid black;
+  border-radius: 5px;
+  box-shadow: 15px 16px 12px #333;
+}
 
 /* display portion */
-#answer{
+#answer {
   background-color: #e2e2e2;
   padding: 10px;
   font-size: 35px;
@@ -15,9 +23,8 @@
   border: 3px solid #333;
 }
 
-
 /* small buttons */
-.button{
+.button {
   background: #333;
   height: 80px;
   width: 80px;
@@ -29,6 +36,6 @@
 
 /* large buttons */
 
-.button1{
+.button1 {
   width: 160px;
 }
