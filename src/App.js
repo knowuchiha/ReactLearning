@@ -1,5 +1,5 @@
-import App from "./calculator"
-function calc(){
+import App from "./calculator";
+function calc() {
   return (
     <>
       <App />
