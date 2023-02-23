@@ -11,11 +11,12 @@ function App() {
     const buttonPress = (value) =>{
         if(value==="AC")
             setResult(0);
-        else if(value==="back")
+        else if(value==="back"){
             if(result<0) 
                 setResult(Math.ceil(result/10)) // bcs floor(-12/10)= -2
             else
                 setResult(Math.floor(result/10));
+        }
         else
         {
             if(result<0)
@@ -25,6 +26,13 @@ function App() {
         }
     }
 
+    // document.addEventListener("keydown", event=>{
+    //     if (Number.isInteger(event.key)){
+            
+    //         buttonPress(parseInt(event.key))
+    //     }
+    // })
+    
     // Subtraction
     const onMinus = () => {
         setNum(result);
