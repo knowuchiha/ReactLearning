@@ -1,3 +1,4 @@
+
 import './App.css';
 import {useState} from "react";
 
@@ -8,13 +9,14 @@ function App() {
 
     //fuctionalities of AC, Backspace and num keys
     const buttonPress = (value) =>{
-        if(value === "AC") {
+        if(value === "AC")
             setResult(0);
-        else if(value==="back")
+        else if(value==="back"){
             if(result<0) 
                 setResult(Math.ceil(result/10)) // bcs floor(-12/10)= -2
             else
                 setResult(Math.floor(result/10));
+        }
         else
         {
             if(result<0)
