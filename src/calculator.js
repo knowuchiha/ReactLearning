@@ -21,9 +21,28 @@ function App() {
       setResult(eval(result).toString()); //evaluates the string
     } catch (err) {
       //if user enters meaningless items
-      setResult("Error");
+      setResult("Syntax Error");
     }
   };
+
+  const oprr = ["+", "-", "*", "/"];
+  const listop = [];
+  for (let i = 0; i < 4; i++) {
+    listop.push(
+      <button className="op" name={oprr[i]} onClick={handleClick}>
+        {oprr[i]}
+      </button>
+    );
+  }
+
+  const listdig = [];
+  for (let i = 1; i < 10; i++) {
+    listdig.push(
+      <button className="di" name={[i]} onClick={handleClick}>
+        {[i]}
+      </button>
+    );
+  }
 
   return (
     <div className="container">
@@ -36,47 +55,12 @@ function App() {
             <button className="op" onClick={clear} id="clear">
               C
             </button>
-            <button className="op" name="+" onClick={handleClick}>
-              +
-            </button>
-            <button className="op" name="-" onClick={handleClick}>
-              -
-            </button>
-            <button className="op" name="*" onClick={handleClick}>
-              *
-            </button>
-            <button className="op" name="/" onClick={handleClick}>
-              /
-            </button>
+
+            {listop}
           </div>
 
-          <button className="di" name="1" onClick={handleClick}>
-            1
-          </button>
-          <button className="di" name="2" onClick={handleClick}>
-            2
-          </button>
-          <button className="di" name="3" onClick={handleClick}>
-            3
-          </button>
-          <button className="di" name="4" onClick={handleClick}>
-            4
-          </button>
-          <button className="di" name="5" onClick={handleClick}>
-            5
-          </button>
-          <button className="di" name="6" onClick={handleClick}>
-            6
-          </button>
-          <button className="di" name="7" onClick={handleClick}>
-            7
-          </button>
-          <button className="di" name="8" onClick={handleClick}>
-            8
-          </button>
-          <button className="di" name="9" onClick={handleClick}>
-            9
-          </button>
+          {listdig}
+
           <button className="di" name="." onClick={handleClick}>
             .
           </button>
