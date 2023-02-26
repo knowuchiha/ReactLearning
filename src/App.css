@@ -1,33 +1,42 @@
-.App {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    background: aliceblue;
-    text-align: center;
-    justify-content: center;
-    border: 1px solid gray;
-    padding: 4px;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.plus {
-    cursor: pointer;
-    padding: 10px;
-    background: black;
-    color: white;
+.calc {
+  width: 320px;
+  border: 3px solid black;
+  border-radius: 5px;
+  box-shadow: 15px 16px 12px #333;
 }
 
-.minus {
-    cursor: pointer;
-    padding: 10px;
-    background: black;
-    color: white;
+/* display portion */
+#answer {
+  background-color: #e2e2e2;
+  padding: 10px;
+  font-size: 35px;
+  width: 295px;
+  height: 45px;
+  text-align: right;
+  border: 3px solid #333;
 }
 
-.value {
-    position: absolute;
-    top : 45px;
-    left: 40px;
-    padding: 16px;
-    font-weight: bold;
-    background: aqua;
+/* small buttons */
+.button {
+  background: #333;
+  height: 80px;
+  width: 80px;
+  color: white;
+  font-size: 30px;
+  border: 1px solid black;
+  float: left;
+}
+
+
+/* large buttons */
+
+.button1 {
+  width: 160px;
 }
