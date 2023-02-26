@@ -5,7 +5,6 @@ const App = () => {
     const [result, setResult] = useState("");
 
     const clickHandler = (event) => {
-        console.log(event);
         setResult(result.concat(event.target.value)); //to change the displayed data and combine the previous result withe the new result
     };
 
