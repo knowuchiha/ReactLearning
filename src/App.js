@@ -1,14 +1,11 @@
 import App from "./calcComponent"
-import Testing from "./test"
 
-function calculator(){
+const initialApp = () =>{
     return(
         <>
             <App/>
-            <Testing/>
-            
         </>
     )
 }
 
-export default calculator;
+export default initialApp;

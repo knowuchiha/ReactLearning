@@ -1,31 +1,38 @@
 import "./App.css";
 import { useState } from "react";
-// import Calculator from './calcComponent';
 
-let App = () => {
-  const [result, setResult] = useState(0); //display the result
-  const [num, setNum] = useState(0); //stores intermediate values
-  const [check, setCheck] = useState("#"); //checks the sign(+ - x /) when pressed
+const App = () => {
 
-  //fuctionalities of AC, Backspace and num keys
+// Display the result
+const [result, setResult] = useState(0);
+
+// Stores intermediate values
+const [num, setNum] = useState(0);
+
+// Checks the sign(+ - x /) when pressed
+const [check, setCheck] = useState("#"); 
+
+// fuctionalities of AC, Backspace and num keys
   const buttonPress = (value) => {
-    if (value === "AC") setResult(0);
+    if (value === "AC") {
+      setResult(0);
+    }
     else if (value === "back") {
-      if (result < 0)
-        setResult(Math.ceil(result / 10)); // bcs floor(-12/10)= -2
-      else setResult(Math.floor(result / 10));
+      if (result < 0) {
+        // bcs floor(-12/10)= -2
+        setResult(Math.ceil(result / 10)); 
+      }
+      else  {
+        setResult(Math.floor(result / 10));
+      }
     } else {
-      if (result < 0) setResult(result * 10 - value);
-      else setResult(result * 10 + value);
+      if (result < 0) 
+        setResult(result * 10 - value);
+      else 
+        setResult(result * 10 + value);
     }
   };
 
-  // document.addEventListener("keydown", event=>{
-  //     if (Number.isInteger(event.key)){
-
-  //         buttonPress(parseInt(event.key))
-  //     }
-  // })
 
   // Subtraction
   const onMinus = () => {
@@ -57,14 +64,18 @@ let App = () => {
 
   // Functionality of the (result) button
   const onResult = () => {
-    if ("+" === check) setResult(num + result);
-    else if ("-" === check) setResult(num - result);
-    else if ("x" === check) setResult(num * result);
-    else if ("/" === check) setResult(num / result);
+    if ("+" === check) 
+      setResult(num + result);
+    else if ("-" === check) 
+      setResult(num - result);
+    else if ("x" === check) 
+      setResult(num * result);
+    else if ("/" === check) 
+      setResult(num / result);
   };
 
   return (
-    <div className="App">
+    <div className="app">
       <div className="textarea">{result}</div>
 
       <div className="rowOperation">
