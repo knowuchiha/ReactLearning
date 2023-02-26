@@ -1,24 +1,29 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  //display
+  // Display
   const [result, setResult] = useState("");
+  const [listDigits, setListDigits] = useState([]);
+  const [listOperator, setListOperator] = useState([]);
 
-  //clicked button
-  const handleClick = (e) => {
-    setResult(result.concat(e.target.name));
+
+  // Clicked button
+  const handleClick = (event) => {
+    setResult(result.concat(event.target.name)) 
   };
 
-  //clear screen
+  // Clear screen
   const clear = () => {
     setResult("");
   };
 
-  //calculate result
+  // Calculate result
   const calculate = () => {
     try {
-      setResult(eval(result).toString()); //evaluates the string
+      // evaluates the string
+      // Todo : replace eval
+      setResult(eval(result.toString())); 
     } catch (err) {
       //if user enters meaningless items
       setResult("Syntax Error");
@@ -26,23 +31,34 @@ function App() {
   };
 
   const oprr = ["+", "-", "*", "/"];
-  const listop = [];
-  for (let i = 0; i < 4; i++) {
-    listop.push(
-      <button className="op" name={oprr[i]} onClick={handleClick}>
-        {oprr[i]}
-      </button>
-    );
-  }
 
-  const listdig = [];
-  for (let i = 1; i < 10; i++) {
-    listdig.push(
-      <button className="di" name={[i]} onClick={handleClick}>
-        {[i]}
-      </button>
-    );
-  }
+// On Mount
+useEffect(() => {
+    const operatorList = [];
+
+      for (let i = 0; i < 4; i++) {
+        operatorList.push(
+          <button className="op" name={oprr[i]} onClick={(ev) => { setResult((prev) => prev.concat(ev.target.name)) }}>
+            {oprr[i]}
+          </button>
+        );
+      }
+
+  
+    const listDigits = [];
+      for (let i = 1; i < 10; i++) {
+        listDigits.push(
+          <button className="di" name={[i]} onClick={(ev) => { setResult((prev) => prev.concat(ev.target.name)) }}>
+            {[i]}
+          </button>
+        );
+      }
+
+      setListOperator([...operatorList]);
+      setListDigits([...listDigits]);
+
+  },[]);
+
 
   return (
     <div className="container">
@@ -55,16 +71,17 @@ function App() {
             <button className="op" onClick={clear} id="clear">
               C
             </button>
-
-            {listop}
+            {listOperator}
           </div>
 
-          {listdig}
+          <div>
+            {listDigits}
+          </div>
 
-          <button className="di" name="." onClick={handleClick}>
+          <button className="di" name="." onClick={() => handleClick}>
             .
           </button>
-          <button className="di" name="0" onClick={handleClick}>
+          <button className="di" name="0" onClick={() => handleClick}>
             0
           </button>
           <button className="di" onClick={calculate}>
